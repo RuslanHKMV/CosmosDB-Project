@@ -24,7 +24,7 @@ namespace CosmosDB_Project
         private string cosmosDBKey = ConfigurationManager.AppSettings["PrimaryKey"];
 
 
-        private Microsoft.Azure.Cosmos.CosmosClient MyCosmosClient;
+        private CosmosClient MyCosmosClient;
         public Form1()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace CosmosDB_Project
 
         private void btn_CreateCosmosClient_Click(object sender, EventArgs e)
         {
-            MyCosmosClient = new Microsoft.Azure.Cosmos.CosmosClient(cosmosDBURI, cosmosDBKey);
+            MyCosmosClient = new CosmosClient(cosmosDBURI, cosmosDBKey);
         }
     }
 }

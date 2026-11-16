@@ -47,10 +47,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxDevEmail = new System.Windows.Forms.TextBox();
             this.btn_CreateCosmosClient = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -89,6 +91,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.textBoxDevEmail);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxDevName);
@@ -132,7 +135,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 142);
+            this.label1.Location = new System.Drawing.Point(30, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 29);
             this.label1.TabIndex = 0;
@@ -142,7 +145,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 142);
+            this.label3.Location = new System.Drawing.Point(21, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(218, 29);
             this.label3.TabIndex = 3;
@@ -152,7 +155,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 211);
+            this.label6.Location = new System.Drawing.Point(30, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(196, 29);
             this.label6.TabIndex = 5;
@@ -162,7 +165,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(23, 214);
+            this.label4.Location = new System.Drawing.Point(21, 159);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(163, 29);
             this.label4.TabIndex = 6;
@@ -172,7 +175,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 279);
+            this.label5.Location = new System.Drawing.Point(21, 224);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(142, 29);
             this.label5.TabIndex = 7;
@@ -180,7 +183,7 @@
             // 
             // textBoxDevID
             // 
-            this.textBoxDevID.Location = new System.Drawing.Point(266, 142);
+            this.textBoxDevID.Location = new System.Drawing.Point(290, 87);
             this.textBoxDevID.Name = "textBoxDevID";
             this.textBoxDevID.ReadOnly = true;
             this.textBoxDevID.Size = new System.Drawing.Size(378, 35);
@@ -188,7 +191,7 @@
             // 
             // textBoxDevName
             // 
-            this.textBoxDevName.Location = new System.Drawing.Point(266, 211);
+            this.textBoxDevName.Location = new System.Drawing.Point(290, 156);
             this.textBoxDevName.Name = "textBoxDevName";
             this.textBoxDevName.ReadOnly = true;
             this.textBoxDevName.Size = new System.Drawing.Size(378, 35);
@@ -196,21 +199,21 @@
             // 
             // textBoxConnectionSRC
             // 
-            this.textBoxConnectionSRC.Location = new System.Drawing.Point(273, 142);
+            this.textBoxConnectionSRC.Location = new System.Drawing.Point(271, 87);
             this.textBoxConnectionSRC.Name = "textBoxConnectionSRC";
             this.textBoxConnectionSRC.Size = new System.Drawing.Size(362, 35);
             this.textBoxConnectionSRC.TabIndex = 8;
             // 
             // textBoxURI
             // 
-            this.textBoxURI.Location = new System.Drawing.Point(273, 210);
+            this.textBoxURI.Location = new System.Drawing.Point(271, 155);
             this.textBoxURI.Name = "textBoxURI";
             this.textBoxURI.Size = new System.Drawing.Size(362, 35);
             this.textBoxURI.TabIndex = 9;
             // 
             // textBoxPrimaryKey
             // 
-            this.textBoxPrimaryKey.Location = new System.Drawing.Point(273, 279);
+            this.textBoxPrimaryKey.Location = new System.Drawing.Point(271, 224);
             this.textBoxPrimaryKey.Name = "textBoxPrimaryKey";
             this.textBoxPrimaryKey.Size = new System.Drawing.Size(362, 35);
             this.textBoxPrimaryKey.TabIndex = 10;
@@ -220,7 +223,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 282);
+            this.label2.Location = new System.Drawing.Point(30, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 29);
             this.label2.TabIndex = 8;
@@ -228,7 +231,7 @@
             // 
             // textBoxDevEmail
             // 
-            this.textBoxDevEmail.Location = new System.Drawing.Point(266, 279);
+            this.textBoxDevEmail.Location = new System.Drawing.Point(290, 224);
             this.textBoxDevEmail.Name = "textBoxDevEmail";
             this.textBoxDevEmail.ReadOnly = true;
             this.textBoxDevEmail.Size = new System.Drawing.Size(378, 35);
@@ -237,13 +240,23 @@
             // btn_CreateCosmosClient
             // 
             this.btn_CreateCosmosClient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_CreateCosmosClient.Location = new System.Drawing.Point(132, 481);
+            this.btn_CreateCosmosClient.Location = new System.Drawing.Point(130, 426);
             this.btn_CreateCosmosClient.Name = "btn_CreateCosmosClient";
             this.btn_CreateCosmosClient.Size = new System.Drawing.Size(407, 106);
             this.btn_CreateCosmosClient.TabIndex = 10;
             this.btn_CreateCosmosClient.Text = "Create Cosmos Client";
             this.btn_CreateCosmosClient.UseVisualStyleBackColor = true;
             this.btn_CreateCosmosClient.Click += new System.EventHandler(this.btn_CreateCosmosClient_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(183, 335);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 300);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -265,6 +278,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,6 +303,7 @@
         private System.Windows.Forms.TextBox textBoxDevEmail;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_CreateCosmosClient;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
