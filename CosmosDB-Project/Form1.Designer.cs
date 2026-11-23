@@ -308,36 +308,36 @@
             // comboBox_TablesNamesFromCloud
             // 
             this.comboBox_TablesNamesFromCloud.FormattingEnabled = true;
-            this.comboBox_TablesNamesFromCloud.Location = new System.Drawing.Point(447, 254);
+            this.comboBox_TablesNamesFromCloud.Location = new System.Drawing.Point(529, 254);
             this.comboBox_TablesNamesFromCloud.Name = "comboBox_TablesNamesFromCloud";
-            this.comboBox_TablesNamesFromCloud.Size = new System.Drawing.Size(385, 37);
+            this.comboBox_TablesNamesFromCloud.Size = new System.Drawing.Size(325, 37);
             this.comboBox_TablesNamesFromCloud.TabIndex = 13;
             // 
             // comboBox_DBsNamesFromCloud
             // 
             this.comboBox_DBsNamesFromCloud.FormattingEnabled = true;
-            this.comboBox_DBsNamesFromCloud.Location = new System.Drawing.Point(447, 108);
+            this.comboBox_DBsNamesFromCloud.Location = new System.Drawing.Point(431, 110);
             this.comboBox_DBsNamesFromCloud.Name = "comboBox_DBsNamesFromCloud";
-            this.comboBox_DBsNamesFromCloud.Size = new System.Drawing.Size(385, 37);
+            this.comboBox_DBsNamesFromCloud.Size = new System.Drawing.Size(423, 37);
             this.comboBox_DBsNamesFromCloud.TabIndex = 12;
             // 
             // btn_GetTablesNamesFromCloud
             // 
             this.btn_GetTablesNamesFromCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_GetTablesNamesFromCloud.Location = new System.Drawing.Point(30, 241);
+            this.btn_GetTablesNamesFromCloud.Location = new System.Drawing.Point(16, 247);
             this.btn_GetTablesNamesFromCloud.Name = "btn_GetTablesNamesFromCloud";
-            this.btn_GetTablesNamesFromCloud.Size = new System.Drawing.Size(389, 68);
+            this.btn_GetTablesNamesFromCloud.Size = new System.Drawing.Size(471, 53);
             this.btn_GetTablesNamesFromCloud.TabIndex = 11;
-            this.btn_GetTablesNamesFromCloud.Text = "Get Tables Names from Cloud";
+            this.btn_GetTablesNamesFromCloud.Text = "Count Tables In Every DB from Cloud";
             this.btn_GetTablesNamesFromCloud.UseVisualStyleBackColor = true;
             this.btn_GetTablesNamesFromCloud.Click += new System.EventHandler(this.btn_GetTablesNamesFromCloud_Click);
             // 
             // btn_GetDBsNamesFromCloud
             // 
             this.btn_GetDBsNamesFromCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_GetDBsNamesFromCloud.Location = new System.Drawing.Point(30, 95);
+            this.btn_GetDBsNamesFromCloud.Location = new System.Drawing.Point(16, 101);
             this.btn_GetDBsNamesFromCloud.Name = "btn_GetDBsNamesFromCloud";
-            this.btn_GetDBsNamesFromCloud.Size = new System.Drawing.Size(389, 68);
+            this.btn_GetDBsNamesFromCloud.Size = new System.Drawing.Size(389, 57);
             this.btn_GetDBsNamesFromCloud.TabIndex = 10;
             this.btn_GetDBsNamesFromCloud.Text = "Get DBs Names from Cloud";
             this.btn_GetDBsNamesFromCloud.UseVisualStyleBackColor = true;
@@ -407,9 +407,9 @@
             // btn_CountDBsInCloud
             // 
             this.btn_CountDBsInCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_CountDBsInCloud.Location = new System.Drawing.Point(863, 95);
+            this.btn_CountDBsInCloud.Location = new System.Drawing.Point(891, 106);
             this.btn_CountDBsInCloud.Name = "btn_CountDBsInCloud";
-            this.btn_CountDBsInCloud.Size = new System.Drawing.Size(285, 57);
+            this.btn_CountDBsInCloud.Size = new System.Drawing.Size(271, 46);
             this.btn_CountDBsInCloud.TabIndex = 14;
             this.btn_CountDBsInCloud.Text = "Count DBs In Cloud";
             this.btn_CountDBsInCloud.UseVisualStyleBackColor = true;
@@ -418,9 +418,9 @@
             // btn_CountTablesInCloud
             // 
             this.btn_CountTablesInCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_CountTablesInCloud.Location = new System.Drawing.Point(863, 247);
+            this.btn_CountTablesInCloud.Location = new System.Drawing.Point(891, 243);
             this.btn_CountTablesInCloud.Name = "btn_CountTablesInCloud";
-            this.btn_CountTablesInCloud.Size = new System.Drawing.Size(285, 57);
+            this.btn_CountTablesInCloud.Size = new System.Drawing.Size(271, 57);
             this.btn_CountTablesInCloud.TabIndex = 15;
             this.btn_CountTablesInCloud.Text = "Count Tables In Cloud";
             this.btn_CountTablesInCloud.UseVisualStyleBackColor = true;
@@ -428,14 +428,14 @@
             // 
             // textBox_DBsCount
             // 
-            this.textBox_DBsCount.Location = new System.Drawing.Point(1168, 106);
+            this.textBox_DBsCount.Location = new System.Drawing.Point(1181, 112);
             this.textBox_DBsCount.Name = "textBox_DBsCount";
             this.textBox_DBsCount.Size = new System.Drawing.Size(126, 35);
             this.textBox_DBsCount.TabIndex = 11;
             // 
             // textBox_TablesCount
             // 
-            this.textBox_TablesCount.Location = new System.Drawing.Point(1168, 254);
+            this.textBox_TablesCount.Location = new System.Drawing.Point(1181, 254);
             this.textBox_TablesCount.Name = "textBox_TablesCount";
             this.textBox_TablesCount.Size = new System.Drawing.Size(126, 35);
             this.textBox_TablesCount.TabIndex = 16;

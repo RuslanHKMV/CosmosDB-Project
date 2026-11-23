@@ -204,7 +204,7 @@ namespace CosmosDB_Project
             return dbCount;
         }
 
-        //get the names of the tables in the cloud account. 
+        //get the number of the tables in the specified database.
         //With the format: DatabaseName.TableName.
         private async void btn_GetTablesNamesFromCloud_Click(object sender, EventArgs e)
         {
@@ -212,7 +212,7 @@ namespace CosmosDB_Project
         }
         private async Task<List<string>> getTablesNamesFromCloudAccountAsync()
         {
-            List<string> tablesNames = new List<string>();
+            List<string> dbNames = new List<string>();
             FeedIterator<DatabaseProperties> dbIterator =
                 MyCosmosClient.GetDatabaseQueryIterator<DatabaseProperties>();
             while (dbIterator.HasMoreResults)
@@ -222,16 +222,18 @@ namespace CosmosDB_Project
                     Database databaseRefObj = MyCosmosClient.GetDatabase(dbProp.Id);
                     FeedIterator<ContainerProperties> tablesIterator =
                         databaseRefObj.GetContainerQueryIterator<ContainerProperties>();
+                    int tableCount = 0;
                     while (tablesIterator.HasMoreResults)
                     {
                         foreach (ContainerProperties tableProp in await tablesIterator.ReadNextAsync())
                         {
-                            tablesNames.Add($"{dbProp.Id}.{tableProp.Id}");
+                            tableCount++;
                         }
                     }
+                    dbNames.Add($"{dbProp.Id} = {tableCount} Tables");
                 }
             }
-            return tablesNames;
+            return dbNames;
         }
 
 
