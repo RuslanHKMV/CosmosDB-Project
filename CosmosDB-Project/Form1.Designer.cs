@@ -48,18 +48,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboBox_TablesNamesFromCloud = new System.Windows.Forms.ComboBox();
+            this.comboBox_DBsNamesFromCloud = new System.Windows.Forms.ComboBox();
+            this.btn_GetTablesNamesFromCloud = new System.Windows.Forms.Button();
+            this.btn_GetDBsNamesFromCloud = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_CreateDataInCloud = new System.Windows.Forms.Button();
             this.textBoxContainerNameToCreate = new System.Windows.Forms.TextBox();
             this.textBoxDatabaseNameToCreate = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btn_CountDBsInCloud = new System.Windows.Forms.Button();
+            this.btn_CountTablesInCloud = new System.Windows.Forms.Button();
+            this.textBox_DBsCount = new System.Windows.Forms.TextBox();
+            this.textBox_TablesCount = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +120,7 @@
             // 
             // comboBoxConnectionSRC
             // 
+            this.comboBoxConnectionSRC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxConnectionSRC.FormattingEnabled = true;
             this.comboBoxConnectionSRC.Items.AddRange(new object[] {
             "Emulator",
@@ -266,6 +277,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
             this.tabPage2.Name = "tabPage2";
@@ -273,6 +285,63 @@
             this.tabPage2.Size = new System.Drawing.Size(1370, 702);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Dabases and Containers";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.textBox_TablesCount);
+            this.groupBox4.Controls.Add(this.textBox_DBsCount);
+            this.groupBox4.Controls.Add(this.btn_CountTablesInCloud);
+            this.groupBox4.Controls.Add(this.btn_CountDBsInCloud);
+            this.groupBox4.Controls.Add(this.comboBox_TablesNamesFromCloud);
+            this.groupBox4.Controls.Add(this.comboBox_DBsNamesFromCloud);
+            this.groupBox4.Controls.Add(this.btn_GetTablesNamesFromCloud);
+            this.groupBox4.Controls.Add(this.btn_GetDBsNamesFromCloud);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox4.Location = new System.Drawing.Point(21, 296);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1330, 398);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Databases and Tables in Cloud";
+            // 
+            // comboBox_TablesNamesFromCloud
+            // 
+            this.comboBox_TablesNamesFromCloud.FormattingEnabled = true;
+            this.comboBox_TablesNamesFromCloud.Location = new System.Drawing.Point(447, 254);
+            this.comboBox_TablesNamesFromCloud.Name = "comboBox_TablesNamesFromCloud";
+            this.comboBox_TablesNamesFromCloud.Size = new System.Drawing.Size(385, 37);
+            this.comboBox_TablesNamesFromCloud.TabIndex = 13;
+            // 
+            // comboBox_DBsNamesFromCloud
+            // 
+            this.comboBox_DBsNamesFromCloud.FormattingEnabled = true;
+            this.comboBox_DBsNamesFromCloud.Location = new System.Drawing.Point(447, 108);
+            this.comboBox_DBsNamesFromCloud.Name = "comboBox_DBsNamesFromCloud";
+            this.comboBox_DBsNamesFromCloud.Size = new System.Drawing.Size(385, 37);
+            this.comboBox_DBsNamesFromCloud.TabIndex = 12;
+            // 
+            // btn_GetTablesNamesFromCloud
+            // 
+            this.btn_GetTablesNamesFromCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_GetTablesNamesFromCloud.Location = new System.Drawing.Point(30, 241);
+            this.btn_GetTablesNamesFromCloud.Name = "btn_GetTablesNamesFromCloud";
+            this.btn_GetTablesNamesFromCloud.Size = new System.Drawing.Size(389, 68);
+            this.btn_GetTablesNamesFromCloud.TabIndex = 11;
+            this.btn_GetTablesNamesFromCloud.Text = "Get Tables Names from Cloud";
+            this.btn_GetTablesNamesFromCloud.UseVisualStyleBackColor = true;
+            this.btn_GetTablesNamesFromCloud.Click += new System.EventHandler(this.btn_GetTablesNamesFromCloud_Click);
+            // 
+            // btn_GetDBsNamesFromCloud
+            // 
+            this.btn_GetDBsNamesFromCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_GetDBsNamesFromCloud.Location = new System.Drawing.Point(30, 95);
+            this.btn_GetDBsNamesFromCloud.Name = "btn_GetDBsNamesFromCloud";
+            this.btn_GetDBsNamesFromCloud.Size = new System.Drawing.Size(389, 68);
+            this.btn_GetDBsNamesFromCloud.TabIndex = 10;
+            this.btn_GetDBsNamesFromCloud.Text = "Get DBs Names from Cloud";
+            this.btn_GetDBsNamesFromCloud.UseVisualStyleBackColor = true;
+            this.btn_GetDBsNamesFromCloud.Click += new System.EventHandler(this.btn_GetDBsNamesFromCloud_Click);
             // 
             // groupBox3
             // 
@@ -283,9 +352,9 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox3.Location = new System.Drawing.Point(8, 6);
+            this.groupBox3.Location = new System.Drawing.Point(21, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1356, 248);
+            this.groupBox3.Size = new System.Drawing.Size(1330, 284);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Create Entities in Cloud";
@@ -293,7 +362,7 @@
             // btn_CreateDataInCloud
             // 
             this.btn_CreateDataInCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_CreateDataInCloud.Location = new System.Drawing.Point(490, 154);
+            this.btn_CreateDataInCloud.Location = new System.Drawing.Point(490, 175);
             this.btn_CreateDataInCloud.Name = "btn_CreateDataInCloud";
             this.btn_CreateDataInCloud.Size = new System.Drawing.Size(346, 62);
             this.btn_CreateDataInCloud.TabIndex = 10;
@@ -335,6 +404,42 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "Database";
             // 
+            // btn_CountDBsInCloud
+            // 
+            this.btn_CountDBsInCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_CountDBsInCloud.Location = new System.Drawing.Point(863, 95);
+            this.btn_CountDBsInCloud.Name = "btn_CountDBsInCloud";
+            this.btn_CountDBsInCloud.Size = new System.Drawing.Size(285, 57);
+            this.btn_CountDBsInCloud.TabIndex = 14;
+            this.btn_CountDBsInCloud.Text = "Count DBs In Cloud";
+            this.btn_CountDBsInCloud.UseVisualStyleBackColor = true;
+            this.btn_CountDBsInCloud.Click += new System.EventHandler(this.btn_CountDBsInCloud_Click);
+            // 
+            // btn_CountTablesInCloud
+            // 
+            this.btn_CountTablesInCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_CountTablesInCloud.Location = new System.Drawing.Point(863, 247);
+            this.btn_CountTablesInCloud.Name = "btn_CountTablesInCloud";
+            this.btn_CountTablesInCloud.Size = new System.Drawing.Size(285, 57);
+            this.btn_CountTablesInCloud.TabIndex = 15;
+            this.btn_CountTablesInCloud.Text = "Count Tables In Cloud";
+            this.btn_CountTablesInCloud.UseVisualStyleBackColor = true;
+            this.btn_CountTablesInCloud.Click += new System.EventHandler(this.btn_CountTablesInCloud_Click);
+            // 
+            // textBox_DBsCount
+            // 
+            this.textBox_DBsCount.Location = new System.Drawing.Point(1168, 106);
+            this.textBox_DBsCount.Name = "textBox_DBsCount";
+            this.textBox_DBsCount.Size = new System.Drawing.Size(126, 35);
+            this.textBox_DBsCount.TabIndex = 11;
+            // 
+            // textBox_TablesCount
+            // 
+            this.textBox_TablesCount.Location = new System.Drawing.Point(1168, 254);
+            this.textBox_TablesCount.Name = "textBox_TablesCount";
+            this.textBox_TablesCount.Size = new System.Drawing.Size(126, 35);
+            this.textBox_TablesCount.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -357,6 +462,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -390,6 +497,15 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxConnectionSRC;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btn_GetTablesNamesFromCloud;
+        private System.Windows.Forms.Button btn_GetDBsNamesFromCloud;
+        private System.Windows.Forms.ComboBox comboBox_TablesNamesFromCloud;
+        private System.Windows.Forms.ComboBox comboBox_DBsNamesFromCloud;
+        private System.Windows.Forms.TextBox textBox_TablesCount;
+        private System.Windows.Forms.TextBox textBox_DBsCount;
+        private System.Windows.Forms.Button btn_CountTablesInCloud;
+        private System.Windows.Forms.Button btn_CountDBsInCloud;
     }
 }
 
