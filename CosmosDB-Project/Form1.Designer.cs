@@ -49,6 +49,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox_TablesCount = new System.Windows.Forms.TextBox();
+            this.textBox_DBsCount = new System.Windows.Forms.TextBox();
+            this.btn_CountTablesInCloud = new System.Windows.Forms.Button();
+            this.btn_CountDBsInCloud = new System.Windows.Forms.Button();
             this.comboBox_TablesNamesFromCloud = new System.Windows.Forms.ComboBox();
             this.comboBox_DBsNamesFromCloud = new System.Windows.Forms.ComboBox();
             this.btn_GetTablesNamesFromCloud = new System.Windows.Forms.Button();
@@ -59,10 +63,21 @@
             this.textBoxDatabaseNameToCreate = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btn_CountDBsInCloud = new System.Windows.Forms.Button();
-            this.btn_CountTablesInCloud = new System.Windows.Forms.Button();
-            this.textBox_DBsCount = new System.Windows.Forms.TextBox();
-            this.textBox_TablesCount = new System.Windows.Forms.TextBox();
+            this.s = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox_IDInput = new System.Windows.Forms.TextBox();
+            this.btn_CheckIfExist = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox_PrefixStrT9 = new System.Windows.Forms.TextBox();
+            this.comboBox_ResultT9 = new System.Windows.Forms.ComboBox();
+            this.btn_getDBsT9 = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox_FindDBWithTableInput = new System.Windows.Forms.TextBox();
+            this.comboBox_GetDBsWithTable = new System.Windows.Forms.ComboBox();
+            this.btn_GetDBsWithTable = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -71,12 +86,17 @@
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.s.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.s);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -305,6 +325,42 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Databases and Tables in Cloud";
             // 
+            // textBox_TablesCount
+            // 
+            this.textBox_TablesCount.Location = new System.Drawing.Point(1181, 254);
+            this.textBox_TablesCount.Name = "textBox_TablesCount";
+            this.textBox_TablesCount.Size = new System.Drawing.Size(126, 35);
+            this.textBox_TablesCount.TabIndex = 16;
+            // 
+            // textBox_DBsCount
+            // 
+            this.textBox_DBsCount.Location = new System.Drawing.Point(1181, 112);
+            this.textBox_DBsCount.Name = "textBox_DBsCount";
+            this.textBox_DBsCount.Size = new System.Drawing.Size(126, 35);
+            this.textBox_DBsCount.TabIndex = 11;
+            // 
+            // btn_CountTablesInCloud
+            // 
+            this.btn_CountTablesInCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_CountTablesInCloud.Location = new System.Drawing.Point(891, 243);
+            this.btn_CountTablesInCloud.Name = "btn_CountTablesInCloud";
+            this.btn_CountTablesInCloud.Size = new System.Drawing.Size(271, 57);
+            this.btn_CountTablesInCloud.TabIndex = 15;
+            this.btn_CountTablesInCloud.Text = "Count Tables In Cloud";
+            this.btn_CountTablesInCloud.UseVisualStyleBackColor = true;
+            this.btn_CountTablesInCloud.Click += new System.EventHandler(this.btn_CountTablesInCloud_Click);
+            // 
+            // btn_CountDBsInCloud
+            // 
+            this.btn_CountDBsInCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_CountDBsInCloud.Location = new System.Drawing.Point(891, 106);
+            this.btn_CountDBsInCloud.Name = "btn_CountDBsInCloud";
+            this.btn_CountDBsInCloud.Size = new System.Drawing.Size(271, 46);
+            this.btn_CountDBsInCloud.TabIndex = 14;
+            this.btn_CountDBsInCloud.Text = "Count DBs In Cloud";
+            this.btn_CountDBsInCloud.UseVisualStyleBackColor = true;
+            this.btn_CountDBsInCloud.Click += new System.EventHandler(this.btn_CountDBsInCloud_Click);
+            // 
             // comboBox_TablesNamesFromCloud
             // 
             this.comboBox_TablesNamesFromCloud.FormattingEnabled = true;
@@ -404,41 +460,159 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "Database";
             // 
-            // btn_CountDBsInCloud
+            // s
             // 
-            this.btn_CountDBsInCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_CountDBsInCloud.Location = new System.Drawing.Point(891, 106);
-            this.btn_CountDBsInCloud.Name = "btn_CountDBsInCloud";
-            this.btn_CountDBsInCloud.Size = new System.Drawing.Size(271, 46);
-            this.btn_CountDBsInCloud.TabIndex = 14;
-            this.btn_CountDBsInCloud.Text = "Count DBs In Cloud";
-            this.btn_CountDBsInCloud.UseVisualStyleBackColor = true;
-            this.btn_CountDBsInCloud.Click += new System.EventHandler(this.btn_CountDBsInCloud_Click);
+            this.s.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.s.Controls.Add(this.groupBox7);
+            this.s.Controls.Add(this.groupBox6);
+            this.s.Controls.Add(this.groupBox5);
+            this.s.Location = new System.Drawing.Point(4, 38);
+            this.s.Name = "s";
+            this.s.Padding = new System.Windows.Forms.Padding(3);
+            this.s.Size = new System.Drawing.Size(1370, 702);
+            this.s.TabIndex = 2;
+            this.s.Text = "Functions";
             // 
-            // btn_CountTablesInCloud
+            // groupBox6
             // 
-            this.btn_CountTablesInCloud.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_CountTablesInCloud.Location = new System.Drawing.Point(891, 243);
-            this.btn_CountTablesInCloud.Name = "btn_CountTablesInCloud";
-            this.btn_CountTablesInCloud.Size = new System.Drawing.Size(271, 57);
-            this.btn_CountTablesInCloud.TabIndex = 15;
-            this.btn_CountTablesInCloud.Text = "Count Tables In Cloud";
-            this.btn_CountTablesInCloud.UseVisualStyleBackColor = true;
-            this.btn_CountTablesInCloud.Click += new System.EventHandler(this.btn_CountTablesInCloud_Click);
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.textBox_IDInput);
+            this.groupBox6.Controls.Add(this.btn_CheckIfExist);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox6.Location = new System.Drawing.Point(24, 357);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(438, 330);
+            this.groupBox6.TabIndex = 15;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Check is DataBase Exist";
             // 
-            // textBox_DBsCount
+            // label10
             // 
-            this.textBox_DBsCount.Location = new System.Drawing.Point(1181, 112);
-            this.textBox_DBsCount.Name = "textBox_DBsCount";
-            this.textBox_DBsCount.Size = new System.Drawing.Size(126, 35);
-            this.textBox_DBsCount.TabIndex = 11;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(41, 50);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 29);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "ID input:";
             // 
-            // textBox_TablesCount
+            // textBox_IDInput
             // 
-            this.textBox_TablesCount.Location = new System.Drawing.Point(1181, 254);
-            this.textBox_TablesCount.Name = "textBox_TablesCount";
-            this.textBox_TablesCount.Size = new System.Drawing.Size(126, 35);
-            this.textBox_TablesCount.TabIndex = 16;
+            this.textBox_IDInput.Location = new System.Drawing.Point(41, 82);
+            this.textBox_IDInput.Name = "textBox_IDInput";
+            this.textBox_IDInput.Size = new System.Drawing.Size(362, 35);
+            this.textBox_IDInput.TabIndex = 13;
+            // 
+            // btn_CheckIfExist
+            // 
+            this.btn_CheckIfExist.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_CheckIfExist.Location = new System.Drawing.Point(107, 178);
+            this.btn_CheckIfExist.Name = "btn_CheckIfExist";
+            this.btn_CheckIfExist.Size = new System.Drawing.Size(216, 73);
+            this.btn_CheckIfExist.TabIndex = 10;
+            this.btn_CheckIfExist.Text = "Check if DataBase Exist";
+            this.btn_CheckIfExist.UseVisualStyleBackColor = true;
+            this.btn_CheckIfExist.Click += new System.EventHandler(this.btn_CheckIfExist_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.textBox_PrefixStrT9);
+            this.groupBox5.Controls.Add(this.comboBox_ResultT9);
+            this.groupBox5.Controls.Add(this.btn_getDBsT9);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox5.Location = new System.Drawing.Point(24, 21);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(438, 330);
+            this.groupBox5.TabIndex = 12;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Find Databases with Prefix";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(41, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(138, 29);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Prefix input:";
+            // 
+            // textBox_PrefixStrT9
+            // 
+            this.textBox_PrefixStrT9.Location = new System.Drawing.Point(41, 82);
+            this.textBox_PrefixStrT9.Name = "textBox_PrefixStrT9";
+            this.textBox_PrefixStrT9.Size = new System.Drawing.Size(362, 35);
+            this.textBox_PrefixStrT9.TabIndex = 13;
+            // 
+            // comboBox_ResultT9
+            // 
+            this.comboBox_ResultT9.FormattingEnabled = true;
+            this.comboBox_ResultT9.Location = new System.Drawing.Point(46, 244);
+            this.comboBox_ResultT9.Name = "comboBox_ResultT9";
+            this.comboBox_ResultT9.Size = new System.Drawing.Size(357, 37);
+            this.comboBox_ResultT9.TabIndex = 12;
+            // 
+            // btn_getDBsT9
+            // 
+            this.btn_getDBsT9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_getDBsT9.Location = new System.Drawing.Point(107, 140);
+            this.btn_getDBsT9.Name = "btn_getDBsT9";
+            this.btn_getDBsT9.Size = new System.Drawing.Size(216, 73);
+            this.btn_getDBsT9.TabIndex = 10;
+            this.btn_getDBsT9.Text = "Get DBs Names with Prefix";
+            this.btn_getDBsT9.UseVisualStyleBackColor = true;
+            this.btn_getDBsT9.Click += new System.EventHandler(this.btn_getDBsT9_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label11);
+            this.groupBox7.Controls.Add(this.textBox_FindDBWithTableInput);
+            this.groupBox7.Controls.Add(this.comboBox_GetDBsWithTable);
+            this.groupBox7.Controls.Add(this.btn_GetDBsWithTable);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox7.Location = new System.Drawing.Point(468, 21);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(436, 330);
+            this.groupBox7.TabIndex = 15;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Find Databases with Table";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(41, 50);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(153, 29);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "Table Name:";
+            // 
+            // textBox_FindDBWithTableInput
+            // 
+            this.textBox_FindDBWithTableInput.Location = new System.Drawing.Point(41, 82);
+            this.textBox_FindDBWithTableInput.Name = "textBox_FindDBWithTableInput";
+            this.textBox_FindDBWithTableInput.Size = new System.Drawing.Size(362, 35);
+            this.textBox_FindDBWithTableInput.TabIndex = 13;
+            // 
+            // comboBox_GetDBsWithTable
+            // 
+            this.comboBox_GetDBsWithTable.FormattingEnabled = true;
+            this.comboBox_GetDBsWithTable.Location = new System.Drawing.Point(46, 244);
+            this.comboBox_GetDBsWithTable.Name = "comboBox_GetDBsWithTable";
+            this.comboBox_GetDBsWithTable.Size = new System.Drawing.Size(357, 37);
+            this.comboBox_GetDBsWithTable.TabIndex = 12;
+            // 
+            // btn_GetDBsWithTable
+            // 
+            this.btn_GetDBsWithTable.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_GetDBsWithTable.Location = new System.Drawing.Point(107, 140);
+            this.btn_GetDBsWithTable.Name = "btn_GetDBsWithTable";
+            this.btn_GetDBsWithTable.Size = new System.Drawing.Size(216, 73);
+            this.btn_GetDBsWithTable.TabIndex = 10;
+            this.btn_GetDBsWithTable.Text = "Get DBs Names with Table";
+            this.btn_GetDBsWithTable.UseVisualStyleBackColor = true;
+            this.btn_GetDBsWithTable.Click += new System.EventHandler(this.btn_GetDBsWithTable_Click);
             // 
             // Form1
             // 
@@ -466,6 +640,13 @@
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.s.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -506,6 +687,21 @@
         private System.Windows.Forms.TextBox textBox_DBsCount;
         private System.Windows.Forms.Button btn_CountTablesInCloud;
         private System.Windows.Forms.Button btn_CountDBsInCloud;
+        private System.Windows.Forms.TabPage s;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox comboBox_ResultT9;
+        private System.Windows.Forms.Button btn_getDBsT9;
+        private System.Windows.Forms.TextBox textBox_PrefixStrT9;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox_IDInput;
+        private System.Windows.Forms.Button btn_CheckIfExist;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox_FindDBWithTableInput;
+        private System.Windows.Forms.ComboBox comboBox_GetDBsWithTable;
+        private System.Windows.Forms.Button btn_GetDBsWithTable;
     }
 }
 

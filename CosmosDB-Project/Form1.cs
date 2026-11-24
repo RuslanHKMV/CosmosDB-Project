@@ -31,7 +31,7 @@ namespace CosmosDB_Project
 
         private string DB_URI;
         private string DB_Key;
-        private bool CosmosClientCreation = false;
+        
 
         private CosmosClient MyCosmosClient;
         public Form1()
@@ -75,7 +75,6 @@ namespace CosmosDB_Project
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 btn_CreateCosmosClient.Enabled = false;
-                CosmosClientCreation = true;
 
             }
             catch (Exception ex)
@@ -89,6 +88,11 @@ namespace CosmosDB_Project
         //Event handler for the btn_CreateDataInCloud button click event
         private async void btn_CreateDataInCloud_Click(object sender, EventArgs e)
         {
+            if (MyCosmosClient == null)
+            {
+                MessageBox.Show("Cosmos Client is not created. Please create the client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string dbNameToCreate = textBoxDatabaseNameToCreate.Text;
             string containerNameToCreate = textBoxContainerNameToCreate.Text;
             if (string.IsNullOrEmpty(dbNameToCreate))
@@ -106,43 +110,36 @@ namespace CosmosDB_Project
         //create a database and a container in the cloud account.
         private async Task createDBandContainerInCloudAsync(string dbNameToCreate, string containerNameToCreate)
         {
-            if (CosmosClientCreation == true)
+            //MessageBox.Show("Creating " + dbNameToCreate + " database and " + containerNameToCreate + " container in the cloud...");
+            DatabaseResponse databaseResponse =
+               await MyCosmosClient.CreateDatabaseIfNotExistsAsync(dbNameToCreate);
+
+            System.Net.HttpStatusCode statusCode = databaseResponse.StatusCode;
+            if (statusCode == System.Net.HttpStatusCode.Created)
             {
-                //MessageBox.Show("Creating " + dbNameToCreate + " database and " + containerNameToCreate + " container in the cloud...");
-                DatabaseResponse databaseResponse =
-                   await MyCosmosClient.CreateDatabaseIfNotExistsAsync(dbNameToCreate);
-
-                System.Net.HttpStatusCode statusCode = databaseResponse.StatusCode;
-                if (statusCode == System.Net.HttpStatusCode.Created)
-                {
-                    MessageBox.Show("Database " + dbNameToCreate + " created successfully in the cloud!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (statusCode == System.Net.HttpStatusCode.OK)
-                {
-                    MessageBox.Show("Database " + dbNameToCreate + " already exists in the cloud!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                Database dbObj = databaseResponse.Database;
-                ContainerResponse containerResponse =
-                    await dbObj.CreateContainerIfNotExistsAsync(containerNameToCreate, "/id");
-
-                statusCode = containerResponse.StatusCode;
-                if (statusCode == System.Net.HttpStatusCode.Created)
-                {
-                    MessageBox.Show("Container " + containerNameToCreate + " created successfully in " + dbNameToCreate + "!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (statusCode == System.Net.HttpStatusCode.OK)
-                {
-                    MessageBox.Show("Container " + containerNameToCreate + " already exists in " + dbNameToCreate + "!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                MessageBox.Show("Database " + dbNameToCreate + " created successfully in the cloud!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            else if (statusCode == System.Net.HttpStatusCode.OK)
             {
-                MessageBox.Show("Error!, At first create client connection","Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Database " + dbNameToCreate + " already exists in the cloud!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            Database dbObj = databaseResponse.Database;
+            ContainerResponse containerResponse =
+                await dbObj.CreateContainerIfNotExistsAsync(containerNameToCreate, "/id");
+
+            statusCode = containerResponse.StatusCode;
+            if (statusCode == System.Net.HttpStatusCode.Created)
+            {
+                MessageBox.Show("Container " + containerNameToCreate + " created successfully in " + dbNameToCreate + "!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (statusCode == System.Net.HttpStatusCode.OK)
+            {
+                MessageBox.Show("Container " + containerNameToCreate + " already exists in " + dbNameToCreate + "!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
         //Event handler for the comboBoxConnectionSRC selection change event
         private void comboBoxConnectionSRC_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -168,6 +165,11 @@ namespace CosmosDB_Project
         //get the names of the databases in the cloud account.
         private async void btn_GetDBsNamesFromCloud_Click(object sender, EventArgs e)
         {
+            if (MyCosmosClient == null)
+            {
+                MessageBox.Show("Cosmos Client is not created. Please create the client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             comboBox_DBsNamesFromCloud.DataSource = await getDBsNamesFromCloudAccountAsync();
         }
         private async Task<List<string>> getDBsNamesFromCloudAccountAsync()
@@ -188,6 +190,11 @@ namespace CosmosDB_Project
         //get the number of databases in the cloud account.
         private async void btn_CountDBsInCloud_Click(object sender, EventArgs e)
         {
+            if (MyCosmosClient == null)
+            {
+                MessageBox.Show("Cosmos Client is not created. Please create the client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             int numberOfDBs = await CountDBsInCloudAccountAsync();
             textBox_DBsCount.Text = numberOfDBs.ToString();
         }
@@ -208,6 +215,11 @@ namespace CosmosDB_Project
         //With the format: DatabaseName.TableName.
         private async void btn_GetTablesNamesFromCloud_Click(object sender, EventArgs e)
         {
+            if (MyCosmosClient == null)
+            {
+                MessageBox.Show("Cosmos Client is not created. Please create the client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             comboBox_TablesNamesFromCloud.DataSource = await getTablesNamesFromCloudAccountAsync();
         }
         private async Task<List<string>> getTablesNamesFromCloudAccountAsync()
@@ -240,6 +252,11 @@ namespace CosmosDB_Project
         //get the number of tables in the cloud account.
         private async void btn_CountTablesInCloud_Click(object sender, EventArgs e)
         {
+            if (MyCosmosClient == null)
+            {
+                MessageBox.Show("Cosmos Client is not created. Please create the client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             int numberOfTables = await CountTablesInCloudAccountAsync();
             textBox_TablesCount.Text = numberOfTables.ToString();
         }
@@ -267,6 +284,127 @@ namespace CosmosDB_Project
             return tableCount;
         }
 
+        //Event handler for the btn_getDBsT9 button click event
+        private async void btn_getDBsT9_Click(object sender, EventArgs e)
+        {
+            
+            comboBox_ResultT9.DataSource = null;
+            //Read the info from screen.
+            string userPrefix = textBox_PrefixStrT9.Text;
+            if (userPrefix.Length == 0)
+            {
+                MessageBox.Show("Please enter a prefix string to search for databases.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (MyCosmosClient == null)
+            {
+                MessageBox.Show("Cosmos Client is not created. Please create the client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            comboBox_ResultT9.DataSource = await getDBsNamesWithPrefixT7Async(userPrefix);
+            if (comboBox_ResultT9.Items.Count == 0)
+            {
+                MessageBox.Show("No databases found with the specified prefix.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private async Task<List<string>> getDBsNamesWithPrefixT7Async(string userPrefix)
+        {
+            List<string> dbNamesList = new List<string>();
+            FeedIterator<DatabaseProperties> dbIterator =
+                MyCosmosClient.GetDatabaseQueryIterator<DatabaseProperties>();
+            while (dbIterator.HasMoreResults)
+            {
+                foreach (DatabaseProperties dbProp in await dbIterator.ReadNextAsync())
+                {
+                    if(dbProp.Id.StartsWith(userPrefix))
+                    {
+                        dbNamesList.Add(dbProp.Id);
+                    }
+                }
+            }
+            return dbNamesList;
+        }
+        //Event handler for the btn_CheckIfExist button click event
+        private void btn_CheckIfExist_Click(object sender, EventArgs e)
+        {
+            string userInput = textBox_IDInput.Text;
+            if(string.IsNullOrEmpty(userInput))
+            {
+                MessageBox.Show("Please enter a database name to check.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (MyCosmosClient != null)
+            {
+                CheckDatabaseExistenceAsync(userInput);
+            }
+            else
+            {
+                MessageBox.Show("Cosmos Client is not created. Please create the client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CheckDatabaseExistenceAsync(string userInput)
+        {
+            FeedIterator<DatabaseProperties> dbIterator =
+                MyCosmosClient.GetDatabaseQueryIterator<DatabaseProperties>();
+            while (dbIterator.HasMoreResults)
+            {
+                foreach (DatabaseProperties dbProp in  dbIterator.ReadNextAsync().Result)
+                {
+                    if (dbProp.Id.CompareTo(userInput) == 0)
+                    {
+                        MessageBox.Show("Database exists.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+            }
+            MessageBox.Show("Database does not exist.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        //Event handler for the btn_GetDBsWithTable button click event
+        private async void btn_GetDBsWithTable_Click(object sender, EventArgs e)
+        {
+            if(MyCosmosClient == null)
+            {
+                MessageBox.Show("Cosmos Client is not created. Please create the client first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string userInputTableName = textBox_FindDBWithTableInput.Text;
+            comboBox_GetDBsWithTable.DataSource = await getDBsWithTableAsync(userInputTableName);
+        }
+
+        private async Task<List<string >> getDBsWithTableAsync(string userInputTableName)
+        {
+            List<string> dbNames = new List<string>();
+            FeedIterator<DatabaseProperties> dbIterator =
+                MyCosmosClient.GetDatabaseQueryIterator<DatabaseProperties>();
+            while (dbIterator.HasMoreResults)
+            {
+                foreach (DatabaseProperties dbProp in await dbIterator.ReadNextAsync())
+                {
+                    Database databaseRefObj = MyCosmosClient.GetDatabase(dbProp.Id);
+                    FeedIterator<ContainerProperties> tablesIterator =
+                        databaseRefObj.GetContainerQueryIterator<ContainerProperties>();
+                    while (tablesIterator.HasMoreResults)
+                    {
+                        foreach (ContainerProperties tableProp in await tablesIterator.ReadNextAsync())
+                        {
+                            if(tableProp.Id.CompareTo(userInputTableName) == 0)
+                            {
+                                dbNames.Add(dbProp.Id);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            if (dbNames.Count == 0)
+            {
+                dbNames.Add("No databases found with the specified table.");
+            }
+            return dbNames;
+        }
     }
 
 }
